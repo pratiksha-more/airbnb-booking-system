@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WonderLust</title>
+</head>
+
+<body>
+    <h3>Listing Details :</h3>
+    <h4>
+        <%= listing.title %>
+    </h4>
+    <p>
+        <%= listing.description %>
+    </p>
+    <p>Price: ₹<%= listing.price.toLocaleString("en-IN") %>
+    </p>
+
+    <p>Location: <%= listing.location %>
+    </p>
+    <p>Posted by: <%= listing.country %>
+    </p>
+    <a href="/listings/<%= listing._id %>/edit">Edit Listing</a>
+
+    <br><br><br>
+
+
+
+    <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+
+</body>
+
+</html>
