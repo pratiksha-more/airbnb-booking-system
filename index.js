@@ -5,12 +5,15 @@ const { data } = require("./init/data");
 const mongoose = require("mongoose");
 const Listing = require("./model/listning");
 const methodOverride = require("method-override");
+const ejsMate = require("ejs-mate");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
+
+app.engine("ejs", ejsMate);
 main()
   .then(() => {
     console.log("Connected to MongoDB");
